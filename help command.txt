@@ -1,0 +1,20 @@
+maven install local dependancy:
+	mvn install:install-file -Dfile="D:\pg code\pg\jars\ojdbc7.jar" -DgroupId=com.oracle -DartifactId=ojdbc7 -Dversion=12.1.0 -Dpackaging=jar
+
+java create .jar file:
+	jar cvf MyJarName.jar manifest.txt .\com\interfaceict\logger\*.class
+
+download server certificate openssl:
+	s_client -showcerts www.fb.com:443 </dev/null
+
+import the certificate:
+	keytool -importcert -file certificate.cer -keystore keystore.jks -alias "Alias" 
+
+send post request 
+	curl -d '{"phoneNumber":"0924952329", "password":"value2"}' -H "Content-Type: application/json" -X POST http://217.160.172.68:8080/auth/login
+
+database commands:
+	mysql -u root -p 
+	show tables
+	show databases
+	use db_name
