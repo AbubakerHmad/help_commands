@@ -14,7 +14,8 @@ import the certificate:
 	keytool -import -alias tomcat -file sadagaat_com_d1dc6_935fb_1607903999_c7c67c63fa8b30d9f0f03e895210ddb6.crt -keystore sadagat_cet.p12 -storepass sudan4All@
 
 	openssl pkcs12 -export -in "D:\Interface\sadagaat document\sadagaat_com_d1dc6_935fb_1607903999_c7c67c63fa8b30d9f0f03e895210ddb6.crt" -inkey "D:\Interface\sadagaat document\d1dc6_935fb_ee3d753c6e4baa1b41b76a1dc208ef9f.key" -out "D:\Interface\sadagaat document\sadagat_new_cet.p12" -name sadagat
-	openssl pkcs12 -export -in "D:\Interface\sadagaat document\sadagaat_com_d1dc6_935fb_1607903999_c7c67c63fa8b30d9f0f03e895210ddb6.crt" -inkey "D:\Interface\sadagaat document\d1dc6_935fb_ee3d753c6e4baa1b41b76a1dc208ef9f.key" -out "D:\Interface\sadagaat document\sadagat_new_cet.p12" -name sadagat
+	openssl pkcs12 -export -in "D:\Interface\sadagaat document\credintial\sadagaat.com\ssl.crt" -inkey "D:\Interface\sadagaat document\credintial\sadagaat.com\ssl.key" -out "D:\Interface\sadagaat document\credintial\sadagaat.com\sadagat_new_cet.p12" -name sadagat
+
 
 send post request 
 	curl -d '{"phoneNumber":"0924952329", "password":"value2"}' -H "Content-Type: application/json" -X POST http://217.160.172.68:8080/auth/login
@@ -24,5 +25,15 @@ database commands:
 	show tables
 	show databases
 	use db_name
+	ALTER DATABASE medical CHARACTER SET utf8 COLLATE utf8_general_ci;
+	CREATE USER 'dbuser'@'localhost' IDENTIFIED BY 'medical123$WEWEWE'
+	GRANT ALL PRIVILEGES ON * . * TO 'dbuser'@'localhost';
+
+	ALTER TABLE currency_translation  MODIFY name Varchar(255) CHARACTER SET utf8mb4;
+
+server:
+	sudo ufw allow from any to any port 8080 proto tcp
 
 
+redis:
+	msiexec /i Redis-Windows-x64.msi PORT=1234
