@@ -26,10 +26,16 @@ database commands:
 	show databases
 	use db_name
 	ALTER DATABASE medical CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER DATABASE
+    sadagaa1_sadagat_live_support_emoji
+    CHARACTER SET = utf8mb4
+    COLLATE = utf8mb4_general_ci;
+
 	CREATE USER 'dbuser'@'localhost' IDENTIFIED BY 'medical123$WEWEWE'
 	GRANT ALL PRIVILEGES ON * . * TO 'dbuser'@'localhost';
 
 	ALTER TABLE currency_translation  MODIFY name Varchar(255) CHARACTER SET utf8mb4;
+ALTER TABLE voulenter_page add column html_page TEXT;
 
 server:
 	sudo ufw allow from any to any port 8080 proto tcp
@@ -37,3 +43,9 @@ server:
 
 redis:
 	msiexec /i Redis-Windows-x64.msi PORT=1234
+
+run app:
+	sudo ln -s /var/myapp/myapp.jar /etc/init.d/myapp create init.d
+	service myapp start status 
+	/var/log/<appname>.log
+	/var/run/<appname>/<appname>.pid
