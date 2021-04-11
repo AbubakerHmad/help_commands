@@ -14,7 +14,7 @@ import the certificate:
 	keytool -import -alias tomcat -file sadagaat_com_d1dc6_935fb_1607903999_c7c67c63fa8b30d9f0f03e895210ddb6.crt -keystore sadagat_cet.p12 -storepass sudan4All@
 
 	openssl pkcs12 -export -in "D:\Interface\sadagaat document\sadagaat_com_d1dc6_935fb_1607903999_c7c67c63fa8b30d9f0f03e895210ddb6.crt" -inkey "D:\Interface\sadagaat document\d1dc6_935fb_ee3d753c6e4baa1b41b76a1dc208ef9f.key" -out "D:\Interface\sadagaat document\sadagat_new_cet.p12" -name sadagat
-	openssl pkcs12 -export -in "D:\Interface\sadagaat document\credintial\sadagaat.com\ssl.crt" -inkey "D:\Interface\sadagaat document\credintial\sadagaat.com\ssl.key" -out "D:\Interface\sadagaat document\credintial\sadagaat.com\sadagat_new_cet.p12" -name sadagat
+	openssl pkcs12 -export -in "D:\Interface\sadagaat document\credintial\ssl v3\SSL1.crt" -inkey "D:\Interface\sadagaat document\credintial\ssl v3\SSL1.key" -out "D:\Interface\sadagaat document\credintial\ssl v3\sadagat_v3_cet.p12" -name sadagat
 
 
 send post request 
@@ -25,17 +25,25 @@ database commands:
 	show tables
 	show databases
 	use db_name
-	ALTER DATABASE medical CHARACTER SET utf8 COLLATE utf8_general_ci;
+	ALTER DATABASE test CHARACTER SET utf8 COLLATE utf8_general_ci;
 ALTER DATABASE
-    sadagaa1_sadagat_live_support_emoji
+    test
     CHARACTER SET = utf8mb4
     COLLATE = utf8mb4_general_ci;
 
 	CREATE USER 'dbuser'@'localhost' IDENTIFIED BY 'medical123$WEWEWE'
 	GRANT ALL PRIVILEGES ON * . * TO 'dbuser'@'localhost';
+create Database 'hathith_development'
 
-	ALTER TABLE currency_translation  MODIFY name Varchar(255) CHARACTER SET utf8mb4;
+	ALTER TABLE copy_rigth_translation MODIFY text Varchar(255) CHARACTER SET utf8mb4;
 ALTER TABLE voulenter_page add column html_page TEXT;
+
+mysqldump -u dbuser  -p test gas> ../home/gas_data.sql
+
+
+Server port
+	sudo ufw status verbose //open port
+	sudo ufw allow 1447/tcp //allow port
 
 server:
 	sudo ufw allow from any to any port 8080 proto tcp
@@ -49,3 +57,10 @@ run app:
 	service myapp start status 
 	/var/log/<appname>.log
 	/var/run/<appname>/<appname>.pid
+	<plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+    <configuration>
+        <executable>true</executable>
+    </configuration>
+</plugin>
