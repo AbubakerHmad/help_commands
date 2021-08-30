@@ -5,7 +5,7 @@ java create .jar file:
 	jar cvf MyJarName.jar manifest.txt .\com\interfaceict\logger\*.class
 
 download server certificate openssl:
-	 s_client -connect www.fb.com:443 -showcerts
+	 s_client -connect www.sadagaat.com:9090 -showcerts
 	s_client -connect mazinhost.com:443 -showcerts | x509 -outform PEM >mycertfile.pem
 "C:\Program Files\Java\jre1.8.0_231\bin\keytool" -importcert -file "D:\mazincertificate.crt" -alias mazinhost.com -keystore "C:\Program Files\Java\jre1.8.0_231\lib\security\jssecacerts" -storepass changeit
 
@@ -14,11 +14,13 @@ import the certificate:
 	keytool -import -alias tomcat -file sadagaat_com_d1dc6_935fb_1607903999_c7c67c63fa8b30d9f0f03e895210ddb6.crt -keystore sadagat_cet.p12 -storepass sudan4All@
 
 	openssl pkcs12 -export -in "D:\Interface\sadagaat document\sadagaat_com_d1dc6_935fb_1607903999_c7c67c63fa8b30d9f0f03e895210ddb6.crt" -inkey "D:\Interface\sadagaat document\d1dc6_935fb_ee3d753c6e4baa1b41b76a1dc208ef9f.key" -out "D:\Interface\sadagaat document\sadagat_new_cet.p12" -name sadagat
-	openssl pkcs12 -export -in "D:\Interface\sadagaat document\credintial\ssl v3\SSL1.crt" -inkey "D:\Interface\sadagaat document\credintial\ssl v3\SSL1.key" -out "D:\Interface\sadagaat document\credintial\ssl v3\sadagat_v3_cet.p12" -name sadagat
+	openssl pkcs12 -export -in "D:\Interface\sadagaat document\credintial\ssl v4\cert.crt" -inkey "D:\Interface\sadagaat document\credintial\ssl v4\key.key" -out "D:\Interface\sadagaat document\credintial\ssl v4\sadagat_v4_cet.p12" -name sadagat
 
 
 send post request 
 	curl -d '{"phoneNumber":"0924952329", "password":"value2"}' -H "Content-Type: application/json" -X POST http://217.160.172.68:8080/auth/login
+
+curl -d '' -H "Content-Type: application/json" -X POST https://172.20.4.204:9825/cashierManagement/updateMemory
 
 database commands:
 	mysql -u root -p 
@@ -27,18 +29,18 @@ database commands:
 	use db_name
 	ALTER DATABASE test CHARACTER SET utf8 COLLATE utf8_general_ci;
 ALTER DATABASE
-    test
+    sadagaat_db_qa
     CHARACTER SET = utf8mb4
     COLLATE = utf8mb4_general_ci;
 
-	CREATE USER 'dbuser'@'localhost' IDENTIFIED BY 'medical123$WEWEWE'
-	GRANT ALL PRIVILEGES ON * . * TO 'dbuser'@'localhost';
-create Database 'hathith_development'
+	CREATE USER 'db_user'@'localhost' IDENTIFIED BY 'qa_db_user@!nterf@ce'
+	GRANT ALL PRIVILEGES ON * . * TO 'db_user'@'localhost';
+create Database ebs_simulator_db
 
-	ALTER TABLE copy_rigth_translation MODIFY text Varchar(255) CHARACTER SET utf8mb4;
+	ALTER TABLE hub_translation MODIFY formated_description LONGTEXT CHARACTER SET utf8mb4;
 ALTER TABLE voulenter_page add column html_page TEXT;
 
-mysqldump -u dbuser  -p test gas> ../home/gas_data.sql
+mysqldump -u dwana_user -p test gas> ../home/final_gas_data.sql
 
 
 Server port
