@@ -3,6 +3,8 @@ maven install local dependancy:
 
 java create .jar file:
 	jar cvf MyJarName.jar manifest.txt .\com\interfaceict\logger\*.class
+	jar xvf app.jar
+	jar cmf0 META-INF/MANIFEST.MF ../app.jar  *
 
 download server certificate openssl:
 	 s_client -connect www.sadagaat.com:9090 -showcerts
@@ -14,7 +16,7 @@ import the certificate:
 	keytool -import -alias tomcat -file sadagaat_com_d1dc6_935fb_1607903999_c7c67c63fa8b30d9f0f03e895210ddb6.crt -keystore sadagat_cet.p12 -storepass sudan4All@
 
 	openssl pkcs12 -export -in "D:\Interface\sadagaat document\sadagaat_com_d1dc6_935fb_1607903999_c7c67c63fa8b30d9f0f03e895210ddb6.crt" -inkey "D:\Interface\sadagaat document\d1dc6_935fb_ee3d753c6e4baa1b41b76a1dc208ef9f.key" -out "D:\Interface\sadagaat document\sadagat_new_cet.p12" -name sadagat
-	openssl pkcs12 -export -in "D:\Interface\sadagaat document\credintial\ssl v4\cert.crt" -inkey "D:\Interface\sadagaat document\credintial\ssl v4\key.key" -out "D:\Interface\sadagaat document\credintial\ssl v4\sadagat_v4_cet.p12" -name sadagat
+	openssl pkcs12 -export -in "D:\Interface\sadagaat document\credintial\ssl v6\cert.crt" -inkey "D:\Interface\sadagaat document\credintial\ssl v6\key.key" -out "D:\Interface\sadagaat document\credintial\ssl v6\sadagat_v6_cet.p12" -name sadagat
 
 
 send post request 
@@ -66,3 +68,8 @@ run app:
         <executable>true</executable>
     </configuration>
 </plugin>
+
+
+zain SS:
+	run:nohup java -Dspring.config.location=application.properties -jar telcopay-v010000.jar >>nohup.out &
+	shutdown:curl -X POST http://localhost:8088/manage/shutdown
