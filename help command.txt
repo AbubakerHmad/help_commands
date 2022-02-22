@@ -1,5 +1,6 @@
 maven install local dependancy:
 	mvn install:install-file -Dfile="D:\pg code\pg\jars\ojdbc7.jar" -DgroupId=com.oracle -DartifactId=ojdbc7 -Dversion=12.1.0 -Dpackaging=jar
+	mvn package -Dmaven.test.skip=true
 
 java create .jar file:
 	jar cvf MyJarName.jar manifest.txt .\com\interfaceict\logger\*.class
@@ -16,7 +17,7 @@ import the certificate:
 	keytool -import -alias tomcat -file sadagaat_com_d1dc6_935fb_1607903999_c7c67c63fa8b30d9f0f03e895210ddb6.crt -keystore sadagat_cet.p12 -storepass sudan4All@
 
 	openssl pkcs12 -export -in "D:\Interface\sadagaat document\sadagaat_com_d1dc6_935fb_1607903999_c7c67c63fa8b30d9f0f03e895210ddb6.crt" -inkey "D:\Interface\sadagaat document\d1dc6_935fb_ee3d753c6e4baa1b41b76a1dc208ef9f.key" -out "D:\Interface\sadagaat document\sadagat_new_cet.p12" -name sadagat
-	openssl pkcs12 -export -in "D:\Interface\sadagaat document\credintial\ssl v6\cert.crt" -inkey "D:\Interface\sadagaat document\credintial\ssl v6\key.key" -out "D:\Interface\sadagaat document\credintial\ssl v6\sadagat_v6_cet.p12" -name sadagat
+	openssl pkcs12 -export -in "D:\Interface\sadagaat document\credintial\ssl v7\cert.crt" -inkey "D:\Interface\sadagaat document\credintial\ssl v7\key.key" -out "D:\Interface\sadagaat document\credintial\ssl v7\sadagat_v7_cet.p12" -name sadagat
 
 
 send post request 
